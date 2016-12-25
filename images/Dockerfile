@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM haproxy:1.5
+FROM haproxy:1.5@sha256:e7c015ee82cb19f8a4e236dc1645cfbb352c5ad50a2892cafd510bbfded129bf
 MAINTAINER Muhammed Uluyol <uluyol@google.com>
 
 RUN apt-get update && apt-get install -y dnsutils

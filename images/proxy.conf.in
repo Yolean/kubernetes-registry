@@ -5,8 +5,8 @@ defaults
   mode http
   retries 3
   option redispatch
-  timeout client 1s
-  timeout server 5s
+  timeout client 3600s
+  timeout server 3600s
   timeout connect 5s
 
 frontend forwarder

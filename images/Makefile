@@ -12,15 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM nginx:1.11
+.PHONY: build push vet test clean
 
-RUN apt-get update \
-	&& apt-get install -y \
-		curl \
-		--no-install-recommends \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man /usr/share/doc
+TAG = 0.4
+REPO = gcr.io/google_containers/kube-registry-proxy
 
-COPY rootfs /
+build:
+	docker build --pull -t $(REPO):$(TAG) .
 
-CMD ["/bin/boot"]
+push:
+	gcloud docker -- push $(REPO):$(TAG)
